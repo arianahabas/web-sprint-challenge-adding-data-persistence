@@ -5,6 +5,13 @@ function find(){
 
 }
 
+async function add(resource){
+    const newResource = await db('resource').insert(resource)
+    return newResource
+}
+
+
 module.exports = {
-    find
+    find,
+    add
 }

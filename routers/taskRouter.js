@@ -12,4 +12,15 @@ router.get("/", async (req, res, next) => {
     }
 })
 
+router.post('/',  (req, res) => {
+    const taskData = req.body
+
+    Task.add(taskData)
+    .then(task => {
+        res.status(201).json(task)
+    }).catch(err=>{
+        res.status(500).json({message: 'failed to create a new task'})
+    })
+})
+
 module.exports = router

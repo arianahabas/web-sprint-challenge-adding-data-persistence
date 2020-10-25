@@ -6,8 +6,13 @@ function find(){
     .select('p.name as projectName','p.description as projectDescription', 't.description as taskDescription' , 't.notes as taskNotes', 't.completed as taskCompleted', 'p.completed as projectCompleted')
 }
 
+async function add(task){
+    const newTask = await db('task').insert(task)
+    return newTask
+}
 module.exports = {
-    find
+    find,
+    add
 }
 
 // SELECT p.name as projectName, p.description AS projectDescription, t.description AS taskDescription, t.notes AS taskNotes, t.completed as taskCompleted, p.completed AS projectCompleted
