@@ -1,12 +1,12 @@
 const express = require("express")
-const Project = require("../models/project")
+const Resource = require("../models/resource")
 
 const router = express.Router()
 
 router.get("/", async (req, res, next) => {
 	try {
-        const projects = await Project.find()
-        res.json(projects)
+        const resource = await Resource.find()
+        res.json(resource)
     } catch (err){
         next(err)
     }
